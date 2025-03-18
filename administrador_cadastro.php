@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-sm-8 mx-auto mt-3 border border-primary">
                 <h3 class="text-center p-3">Confirmação do Cadastro</h3>
-                </div>
+                
                 <div>
                     <?php
                     $nome = $_REQUEST["nome"];
@@ -29,6 +29,13 @@
                     echo "Nome do Administrador: $nome <br>
                         Login: $login <br>
                         Senha: $senha <br>";
+
+                    $sql = "insert into administrador(nome, login, senha)
+                        values (:nome, :login, :senha)"; 
+
+                        include "conexao.php";
+                        $result = $conexao->prepare($sql);
+
                        ?> 
             </div>
 
